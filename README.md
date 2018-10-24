@@ -13,7 +13,7 @@ Outbound access required for github to clone the plugin
 
  
 ## mesdp trigger plugin functions
-Details of the function that can be used with the ClickSend trigger is given in this section.
+Details of the function that can be used with the mesdp trigger is given in this section.
 
 ### create_ticket 
 This function allows for creating a ticket against an observerd event using the defined (custom/default template)  .

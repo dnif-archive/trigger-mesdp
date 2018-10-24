@@ -2,7 +2,6 @@ import yaml
 import os
 import requests
 import logging
-import json
 import xml.etree.ElementTree as ET
 
 path = os.environ["WORKDIR"]
@@ -24,7 +23,7 @@ def select_template(dt,tmp_name):
         url = "https://{0}:{1}/sdpapi/request?OPERATION_NAME=ADD_REQUEST&TECHNICIAN_KEY={2}".format(mesdp_server,
                                                                                                     mesdp_port,
                                                                                                     mesdp_key)
-        args = {'OPERATION_NAME': 'ADD_REQUEST', 'TECHNICIAN_KEY': '5D6E2445-ACA7-4FFD-862D-47C26C91CC83', 'format': 'xml',
+        args = {'OPERATION_NAME': 'ADD_REQUEST', 'TECHNICIAN_KEY': mesdp_key, 'format': 'xml',
                 'INPUT_DATA': xml_content}
 
         response = requests.post(url, params=args, verify=False)
@@ -52,8 +51,8 @@ def create_ticket(inward_array, var_array):
             if var_array[1] in i:
                 tmp_dict = {}
                 tmp_dict.update(i)
-                tmp_dict['$Name'] = mesdp_name
-                tmp_dict['$Subject'] = str(var_array[0])+str(i[var_array[1]])
+                tmp_dict['$Name']=mesdp_name
+                tmp_dict['$Subject']=str(var_array[0])+str(i[var_array[1]])
                 if (len(var_array) == 3):
                     fname = var_array[2].replace(" ", "")
                 else:
@@ -65,5 +64,3 @@ def create_ticket(inward_array, var_array):
             tmp_lst.append(i)
             logging.error("%s", e)
     return tmp_lst
-
-
