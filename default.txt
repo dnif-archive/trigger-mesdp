@@ -1,0 +1,8 @@
+"requester": "{$Name}",
+"subject": "{$Subject}",
+"description": "Action: {$Action} Authentication Protocol: {$AuthProtocol} Log Name: {$LogName} Login Source: {$LoginSrc} Source IP: {$SrcIP} Sub Status: {$SubStatus} System Name: {$SystemName} User : {$User} Message: {$Message}",
+"status": "open",
+"service": "Email",
+"category": "Network",
+"subcategory": "WiFi",
+"requesttemplate": "Spyware Detect on PaloAlto"
